@@ -16,6 +16,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -29,30 +30,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpack.ui.theme.JetpackTheme
 
 @Composable
-fun CounterScreen(modifier: Modifier = Modifier) {
-    var count by rememberSaveable { mutableIntStateOf(0) }
-    var stepText by rememberSaveable { mutableStateOf("1") }
-    val step = stepText.toIntOrNull() ?: 1
-
-    val isIncrementEnabled by remember {
-        derivedStateOf { count < 10 }
-    }
-    val isResetEnabled by remember {
-        derivedStateOf { count > 0 }
-    }
+fun CounterScreen(
+    modifier: Modifier = Modifier,
+    viewModel: CounterViewModel = viewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
 
     CounterContent(
         modifier,
-        count,
-        { count += step },
-        { count = 0 },
-        isIncrementEnabled,
-        isResetEnabled,
-        stepText,
-        { stepText = it }
+        uiState.count,
+        { viewModel.onIncrement() },
+        { viewModel.onReset() },
+        uiState.isIncrementEnabled,
+        uiState.isResetEnabled,
+        uiState.stepText,
+        { viewModel.onStepChange(it) }
     )
 }
 

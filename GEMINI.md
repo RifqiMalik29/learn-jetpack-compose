@@ -39,3 +39,8 @@ Dalam setiap materi atau langkah pembuatan fitur:
   - Inversion of Control, Setup Hilt, `@Inject`, Provide API & Database Dependencies.
 - **Modul 6: Testing & Production Capstone App**
   - Unit Test ViewModel & Repository (JUnit & MockK), final polish portfolio-grade app.
+
+## 5. OTOMASI GIT WORKFLOW (COMMIT & PUSH TIAP SELESAI MATERI)
+- Setiap kali satu materi, latihan, atau sub-modul selesai dipelajari, diverifikasi di emulator, dan kodenya sudah bersih:
+  1. Asisten secara otomatis melakukan `git add` dan `git commit` dengan format *Conventional Commits* yang jelas (contoh: `feat(module-2): implement mvvm with viewmodel and stateflow`).
+  2. Asisten langsung mengeksekusi `git push` ke repository GitHub pengguna (`RifqiMalik29/learn-jetpack-compose`) agar riwayat portofolio selalu tersinkronisasi dan tersimpan aman.
