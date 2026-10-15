@@ -16,7 +16,7 @@ fun AppNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = "counter",
+        startDestination = "products",
         modifier = modifier
     ) {
         composable("counter") {
@@ -39,6 +39,10 @@ fun AppNavHost(
                 count = count,
                 onBackClick = { navController.popBackStack() }
             )
+        }
+
+        composable("products") {
+            ProductScreen()
         }
     }
 }
