@@ -44,3 +44,10 @@ Dalam setiap materi atau langkah pembuatan fitur:
 - Setiap kali satu materi, latihan, atau sub-modul selesai dipelajari, diverifikasi di emulator, dan kodenya sudah bersih:
   1. Asisten secara otomatis melakukan `git add` dan `git commit` dengan format *Conventional Commits* yang jelas (contoh: `feat(module-2): implement mvvm with viewmodel and stateflow`).
   2. Asisten langsung mengeksekusi `git push` ke repository GitHub pengguna (`RifqiMalik29/learn-jetpack-compose`) agar riwayat portofolio selalu tersinkronisasi dan tersimpan aman.
+
+## 6. RANGKUMAN & PERSIAPAN WAWANCARA KERJA (TIAP SELESAI MODUL)
+- Setiap kali satu modul utama selesai dipelajari, asisten wajib membuat dokumen rangkuman komprehensif (*module study notes artifact*) yang mencakup:
+  1. **Teknologi & Arsitektur**: Komponen apa saja yang diimplementasikan dan perannya di industri.
+  2. **Tanya-Jawab Konsep Kunci**: Rangkuman pertanyaan kritis pengguna dan analogi logikanya.
+  3. **Bedah Error & Logcat**: Rekam jejak kendala/error yang dialami, pesan logcat, akar masalah, dan solusinya.
+  4. **Cheatsheet Wawancara Kerja**: Pertanyaan wawancara teknis yang sering muncul terkait materi modul beserta contoh cara menjawabnya secara profesional.
