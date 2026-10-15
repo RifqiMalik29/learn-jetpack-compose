@@ -36,7 +36,8 @@ import com.example.jetpack.ui.theme.JetpackTheme
 @Composable
 fun CounterScreen(
     modifier: Modifier = Modifier,
-    viewModel: CounterViewModel = viewModel()
+    viewModel: CounterViewModel = viewModel(),
+    onNavigateToDetail: (Int) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -48,7 +49,8 @@ fun CounterScreen(
         uiState.isIncrementEnabled,
         uiState.isResetEnabled,
         uiState.stepText,
-        { viewModel.onStepChange(it) }
+        { viewModel.onStepChange(it) },
+        { onNavigateToDetail(uiState.count) }
     )
 }
 
@@ -61,7 +63,8 @@ fun CounterContent(
     isIncrementEnabled: Boolean,
     isResetEnabled: Boolean,
     stepText: String,
-    onStepChange: (String) -> Unit
+    onStepChange: (String) -> Unit,
+    onNavigateToDetail: (Int) -> Unit
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
@@ -96,6 +99,11 @@ fun CounterContent(
         ) {
             Text("Reset Count")
         }
+        Button(
+            onClick = { onNavigateToDetail(count) }
+        ) {
+            Text("Lihat Detail")
+        }
     }
 }
 
@@ -103,6 +111,6 @@ fun CounterContent(
 @Composable
 fun CounterPreviewWithLargeNumber() {
     JetpackTheme {
-        CounterContent(Modifier, 10, {}, {}, false, false, "", {})
+        CounterContent(Modifier, 10, {}, {}, false, false, "", {}, {})
     }
 }

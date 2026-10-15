@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             JetpackTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    CounterScreen(modifier = Modifier.padding(innerPadding))
+                    AppNavHost(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
