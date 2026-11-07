@@ -1,9 +1,9 @@
 package com.example.jetpack
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class AppApplication: Application() {
-    val database by lazy { AppDatabase.getDatabase(this) }
 
-    val productRepository by lazy { ProductRepository(database.productDao()) }
 }
